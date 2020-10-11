@@ -5,16 +5,16 @@ d3.csv("assets/data/data.csv").then(data => {
 
 // The code for the chart is wrapped inside a function that
 // automatically resizes the chart
-function makeResponsive() {
+// function makeResponsive() {
 
     // if the SVG area isn't empty when the browser loads,
     // remove it and replace it with a resized version of the chart
-    var svgArea = d3.select("body").select("scatter");
+    // var svgArea = d3.select("body").select("scatter");
   
-    // clear svg is not empty
-    if (!svgArea.empty()) {
-      svgArea.remove();
-    }
+    // // clear svg is not empty
+    // if (!svgArea.empty()) {
+    //   svgArea.remove();
+    // }
   
     // SVG wrapper dimensions are determined by the current width and
     // height of the browser window.
@@ -34,7 +34,7 @@ function makeResponsive() {
   
     // Append SVG element
     var svg = d3
-      .select(".scatter")
+      .select("#scatter")
       .append("svg")
       .attr("height", svgHeight)
       .attr("width", svgWidth);
@@ -402,13 +402,13 @@ function makeResponsive() {
     }).catch(error => {
         console.log(error);
     });
-};
+// };
         
   
   
-// When the browser loads, makeResponsive() is called.
-makeResponsive();
+// // When the browser loads, makeResponsive() is called.
+// makeResponsive();
   
-// When the browser window is resized, makeResponsive() is called.
-d3.select(window).on("resize", makeResponsive);
+// // When the browser window is resized, makeResponsive() is called.
+// d3.select(window).on("resize", makeResponsive);
   
