@@ -163,8 +163,8 @@ d3.csv("assets/data/data.csv").then(data => {
 
         // call d3.tip to update tooltip html return 
         var toolTip = d3.tip()
-            .attr("class", "tooltip")
-            // .offset([80, -60])
+            .attr("class", "d3-tip")
+            .offset([80, -60])
             .html(function(d) {
                 // format to currency if chosen xaxis is income 
                 if (paramX === "income"){
