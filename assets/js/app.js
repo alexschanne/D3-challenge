@@ -18,14 +18,16 @@ d3.csv("assets/data/data.csv").then(data => {
   
     // SVG wrapper dimensions are determined by the current width and
     // height of the browser window.
-    var svgWidth = window.innerWidth;
-    var svgHeight = window.innerHeight;
-  
+    // var svgWidth = window.innerWidth;
+    // var svgHeight = window.innerHeight;
+    var svgWidth = 960;
+    var svgHeight = 500;
+
     var margin = {
-      top: 50,
-      bottom: 50,
-      right: 50,
-      left: 50
+      top: 28,
+      bottom: 80,
+      right: 40,
+      left: 100
     };
   
     //set height and width of display
@@ -37,7 +39,7 @@ d3.csv("assets/data/data.csv").then(data => {
       .select("#scatter")
       .append("svg")
       .attr("height", svgHeight)
-      .attr("width", svgWidth);
+      .attr("width", svgWidth + 50);
   
     // Append group element
     var chartGroup = svg.append("g")
@@ -162,7 +164,7 @@ d3.csv("assets/data/data.csv").then(data => {
         // call d3.tip to update tooltip html return 
         var toolTip = d3.tip()
             .attr("class", "tooltip")
-            .offset([80, -60])
+            // .offset([80, -60])
             .html(function(d) {
                 // format to currency if chosen xaxis is income 
                 if (paramX === "income"){
@@ -244,24 +246,24 @@ d3.csv("assets/data/data.csv").then(data => {
                 
         //three x-axis option 
         var xAxisOptions = chartGroup.append("g")
-            .attr("transform", `translate(${width}/2}, ${height + 20})`);
+            .attr("transform", `translate(${width / 2}, ${height + 20})`);
         
         var agelabel = xAxisOptions.append("text")
-            .attr("x", 0)
+            .attr("x", 30)
             .attr("y", 18)
             .attr("value", "age") 
             .classed("active", true)
             .text("Median Age");
 
         var incomelabel = xAxisOptions.append("text")
-            .attr("x", 0)
+            .attr("x", 30)
             .attr("y", 36)
             .attr("value", "income") 
             .classed("inactive", true)
             .text("Median Household income");
 
         var povertylabel = xAxisOptions.append("text")
-            .attr("x", 0)
+            .attr("x", 30)
             .attr("y", 54)
             .attr("value", "poverty") 
             .classed("inactive", true)
@@ -272,7 +274,7 @@ d3.csv("assets/data/data.csv").then(data => {
             .attr("transform", "rotate(-90)");
 
         var healthcarelabel = yAxisOptions.append("text")
-            .attr("y", 0 - margin.left +50)
+            .attr("y", 0 - margin.left+50)
             .attr("x", 0 - (height/2))
             .attr("dy", "1em")
             .attr("yValue", "healthcare")
@@ -281,7 +283,7 @@ d3.csv("assets/data/data.csv").then(data => {
             .text("% Without Healthcare");
 
         var obesitylabel = yAxisOptions.append("text")
-            .attr("y", 0 - margin.left + 32)
+            .attr("y", 0 - margin.left +32)
             .attr("x", 0 - (height/2))
             .attr("dy", "1em")
             .attr("yValue", "obesity")
@@ -290,7 +292,7 @@ d3.csv("assets/data/data.csv").then(data => {
             .text("% Obese");
         
         var smokerlabel = yAxisOptions.append("text")
-            .attr("y", 0 - margin.left + 14)
+            .attr("y", 0 - margin.left +14)
             .attr("x", 0 - (height/2))
             .attr("dy", "1em")
             .attr("yValue", "smokes")
